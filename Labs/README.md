@@ -89,15 +89,22 @@ Create a custom Docker image using Nginx and a local HTML file.
 ### Steps
 #### 1. Create a Local HTML File
 ```bash
+touch index.html
+vi index.html
 ```
 #### 2. Write Dockerfile and Copy the HTML file to the Docker Image
 ```bash
+FROM nginx
+COPY index.html /usr/share/nginx/html/index.html
 ```
 #### 3. Run Container with New Image
 ```bash
+docker build -t custom-nginx .
+docker run -d -p 8088:80 custom-nginx
 ```
 
 #### 4. Test the Container, open your browser and navigate to http://localhost:8088 to check if everything is okay
 ```bash
+
 ```
 
